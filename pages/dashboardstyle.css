@@ -32,8 +32,8 @@ h6{
 
 .horizontal-line {
     margin-top: 20px;
-    height: 2px; /* Ketebalan garis */
-    background-color: #F0C476; /* Warna garis */
+    height: 2px;
+    background-color: #F0C476;
 }
 
 .dropdown-toggle {
@@ -44,8 +44,8 @@ h6{
 }
 
 .custom-btn .username-text {
-    color: #E59A17; /* Ubah warna teks Username */
-    font-weight: bold; /* Tambahkan gaya teks */
+    color: #E59A17;
+    font-weight: bold;
     margin-left: 5px;
 }
 
@@ -138,7 +138,7 @@ h6{
 
 .nav-link:hover {
     background-color: #FFDAB9;
-    color: #3d5a40;
+    color: #F0C476;
 }
 
 .nav-link:hover img.nav-icon {
