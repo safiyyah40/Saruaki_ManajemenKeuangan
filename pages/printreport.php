@@ -18,7 +18,7 @@
                 <div class="horizontal-line"></div>
             </div>
             <nav class="nav flex-column">
-                <a href="home.php" class="nav-link active">
+                <a href="home.php" class="nav-link">
                     <img src="../images/icon_home.svg" alt="Home Icon" class="nav-icon"> Home
                 </a>
                 <a href="dashboard.php" class="nav-link">
@@ -39,7 +39,7 @@
                     <img src="../images/icon_receivable.svg" alt="Receivable Icon" class="nav-icon"> Receivable
                 </a>
                 <p class="text-warning fw-bold mt-4">Report</p>
-                <a href="printreport.php" class="nav-link">
+                <a href="printreport.php" class="nav-link active">
                     <img src="../images/icon_print_report.svg" alt="Print Icon" class="nav-icon"> Print Report
                 </a>
             </nav>
