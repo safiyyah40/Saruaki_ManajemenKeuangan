@@ -43,7 +43,7 @@ $fullName = $user['fullName'];
                 <hr>
             </div>
             <nav class="nav flex-column px-3">
-                <a href="home.php" class="nav-link active">
+                <a href="home.php" class="nav-link">
                     <img src="../images/icon_home.svg" alt="Home Icon" class="nav-icon"> Home
                 </a>
                 <a href="dashboard.php" class="nav-link">
@@ -73,7 +73,7 @@ $fullName = $user['fullName'];
         <!-- Main Content -->
         <div class="content p-4 flex-grow-1">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6>Pages / <span class="text-warning">Home</span></h6>
+                <h6>Pages / <span class="text-warning">My Profile</span></h6>
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle custom-btn" type="button" data-bs-toggle="dropdown">
                         <img src="../images/icon_user.svg" alt="User Icon">
