@@ -1,0 +1,135 @@
+a {
+    text-decoration: unset;
+    color: black;
+}
+
+.container {
+    background-color: #F5E6C4;
+    color: #485847;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7rem;
+    height: 18rem;
+    width: 70rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.container .header {
+    display: flex;
+    position: absolute;
+    margin-top: -3rem;
+    margin-left: 22rem;
+    background-color: #F3A00D;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    width: 25rem;
+    border-radius: 1rem;
+}
+
+.container img {
+    position: absolute;
+    margin-left: 5rem;
+    margin-top: 3rem;
+    width: 200px;
+}
+
+.header h1 {
+    font-weight: 500;
+}
+
+.container button {
+    position: absolute;
+    margin-left: 60rem;
+    margin-top: -60px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    outline: 0.1px transparent #485847;
+    cursor: pointer;
+    font-weight: 500;
+    min-width: 150px;
+}
+
+.text {
+    padding-top: 5rem;
+    margin-left: 350px;
+}
+
+.text h1 {
+    font-size: 80px;
+}
+
+.container-1 {
+    background-color: #F5E6C4;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25rem;
+    margin-top: 4rem;
+    height: 20rem;
+    width: 70rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.container-1 .header {
+    background-color: #F3A00D;
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    height: 5rem;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.content-1 {
+    color: #485847;
+    margin-top: 25px;
+    display: flex;
+}
+
+.content-1 h5 {
+    font-weight: bold;
+}
+
+.content-1 p {
+    font-weight: 500;
+}
+
+.content-1 .left {
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content-1 .right {
+    margin-left: 30rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content-1 .right button {
+    border-radius: 50px;
+    background-color: #F3A00D;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    margin-top: -15px;
+    margin-left: 23rem;
+    min-width: 100px;
+}
+
+input {
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #616b60;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: -15px;
+    margin-left: -20;
+    min-width: 100px;
+}

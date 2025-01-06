@@ -30,7 +30,7 @@ $fullName = $user['fullName'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARUAKI FINANCE</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="contentstyle.css">
+    <link rel="stylesheet" href="homestyle.css">
 </head>
 
 <body>
@@ -81,7 +81,7 @@ $fullName = $user['fullName'];
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="myprofile.php">
+                            <a class="dropdown-item" href="profile.php">
                                 <img src="../images/icon_myprofile.svg" alt="My Profile Icon" class="dropdown-icon">
                                 My Profile
                             </a>

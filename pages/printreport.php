@@ -81,7 +81,7 @@ $fullName = $user['fullName'];
                     </button>
                     <ul class="dropdown-menu">
                         <li>
-                            <a class="dropdown-item" href="myprofile.php">
+                            <a class="dropdown-item" href="profile.php">
                                 <img src="../images/icon_myprofile.svg" alt="My Profile Icon" class="dropdown-icon">
                                 My Profile
                             </a>
