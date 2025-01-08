@@ -4,6 +4,19 @@ body {
     height: 100%;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF4F3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3d5a40;
+    border-radius: 20px;
+}
+
 span {
     font-weight: bolder;
 }
@@ -143,6 +156,10 @@ h6{
     text-align: left;
     margin-top: 10px;
     padding-left: 15px;
+}
+
+.content {
+    margin-left: 16rem;
 }
 
 .container-table {

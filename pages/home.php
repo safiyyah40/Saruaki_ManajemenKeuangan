@@ -95,6 +95,44 @@ $fullName = $user['fullName'];
                     </ul>
                 </div>
             </div>
+
+            <!-- Content -->
+            <div class="highlight">
+                <h1>Track Your Finances, Achieve Your Goals.</h1>
+                <p>Stay in control of your financial journey with SARUAKI. Easily record and monitor your daily and monthly income and expenses, keep track of debts and receivables, and gain a clear overview of your financial health. Our app empowers you to make informed decisions and stay on top of your finances, helping you achieve both short-term and long-term financial goals.</p>
+            </div>
+            <div class="highlight-1">
+                <p>See what people think of this app</p>
+            </div>
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Simple and User-Friendly</h5>
+                        <p class="card-text">"This app is incredibly easy to use! As someone who’s just starting to manage my finances, I found the design very intuitive. Everything is clearly laid out, and I didn’t have to spend much time learning how to use it."</p>
+                        <h6 class="card-subtitle">–Ume, First-Time User</h6>
+                    </div>
+                </div>
+            <div class="card">
+                 <div class="card-body">
+                    <h5 class="card-title">Access Anywhere, Anytime</h5>
+                    <p class="card-text">"I love the flexibility of being able to access my financial data no matter where I am. Whether I’m at home on my computer or on the go with my phone, I can always check my finances with ease."</p>
+                    <h6 class="card-subtitle">–Kazehaya, Professional</h6>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Saves Time and Energy</h5>
+                    <p class="card-text"> "I used to spend hours manually calculating my spending, but this app’s automation has made my life so much easier. It saves me time and lets me focus on other important tasks."</p>
+                    <h6 class="card-subtitle">Sawako, Collage Student</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="opinion">
+                <input type="text" placeholder="Tell us your opinion!">
+            </div>
+            
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        </div>
 </body>
 </html>
