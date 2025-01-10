@@ -1,0 +1,256 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF4F3;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3d5a40;
+    border-radius: 20px;
+}
+
+
+span {
+    font-weight: bolder;
+}
+
+h6{
+    color: #F0C476;
+    
+}
+
+.horizontal-line {
+    margin-top: 20px;
+    height: 2px;
+    background-color: #F0C476;
+}
+
+.dropdown-toggle {
+    border: 1px solid #f5f5f5;
+    background-color: #FFF4F3;
+    color: #333;
+    font-weight: bold;
+}
+
+.custom-btn .username-text {
+    color: #E59A17;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-bottom: 5px; 
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item img.dropdown-icon {
+    width: 20px;
+    margin-right: 10px;
+    transition: filter 0.3s ease, brightness 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: #3d5a40;
+    color: #F0C476;
+}
+
+.dropdown-item:hover img.dropdown-icon {
+    filter: brightness(0) invert(1);
+}
+
+.dropdown-item.active {
+    background-color: #3d5a40;
+    color: #F0C476;
+}
+
+.dropdown-item.active img.dropdown-icon {
+    filter: brightness(0) invert(1);
+    transition: none;
+}
+
+.sidebar {
+    position: fixed;
+    background-color: #FFF4F3;
+    width: 250px;
+    height: 100vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar .text-center {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar img.logo {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.sidebar h5 {
+    color: #ff8c00;
+    font-weight: bold;
+    margin: 0;
+}
+
+.nav {
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    background-color: #F5E6C4;
+    color: #616B60;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 35px;
+}
+
+.nav-link img.nav-icon {
+    width: 20px;
+    margin-right: 10px;
+    transition: filter 0.3s ease, brightness 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #FFDAB9;
+    color: #F0C476;
+}
+
+.nav-link:hover img.nav-icon {
+    filter: brightness(0) invert(1);
+}
+
+.nav-link.active {
+    background-color: #3d5a40;
+    color: #F0C476;
+}
+
+.nav-link.active img.nav-icon {
+    filter: brightness(0) invert(1);
+    transition: none;
+}
+
+.text-warning {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.content {
+    margin-left: 15rem;
+}
+
+.highlight {
+    padding: 15rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.highlight h1 {
+    font-weight: bolder;
+    color: #485847;
+    text-decoration: underline;
+}
+
+.highlight p {
+    font-size: x-large;
+    color: #485847;
+    font-weight: 700;
+}
+
+.highlight-1 p {
+    margin-top: 10rem;
+    text-align: center;
+    font-size: xx-large;
+    font-weight:900;
+    color: #E59A17;
+}
+
+.card-group {
+    margin-top: 5rem;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    border: none;
+}
+
+.card-body {
+    width: 30rem;
+    background-color: #F0C476;
+    color: #485847;
+    border-radius: 10px;
+}
+
+.card-body h5 {
+    font-weight: 700;
+}
+
+.card-body p {
+    font-weight: 100;
+}
+
+.card-body h6 {
+    font-weight: 700;
+}
+
+.opinion {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.opinion input {
+    margin-left: 5rem;
+    width: 90rem;
+    height: 2.5rem;
+    border-radius: 15px;
+}
+
+.header {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 82%;
+    background-color: #F0C476;
+    padding: 15px;
+    border-radius: 10px 10px 10px 10px;
+    color: #485847;
+    margin-top: -60px;
+}
+
+header h2 {
+    margin: 0;
+}
+
+.footer {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
