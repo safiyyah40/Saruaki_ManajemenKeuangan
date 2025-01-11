@@ -122,7 +122,7 @@ $fullName = $user['fullName'];
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Saves Time and Energy</h5>
-                    <p class="card-text"> "I used to spend hours manually calculating my spending, but this app’s automation has made my life so much easier. It saves me time and lets me focus on other important tasks."</p>
+                    <p class="card-text">"I used to spend hours manually calculating my spending, but this app’s automation has made my life so much easier. It saves me time and lets me focus on other important tasks."</p>
                     <h6 class="card-subtitle">Sawako, Collage Student</h6>
                     </div>
                 </div>
@@ -131,8 +131,24 @@ $fullName = $user['fullName'];
             <div class="opinion">
                 <input type="text" placeholder="Tell us your opinion!">
             </div>
+
+            <!-- Footer -->
+            <footer id="page-footer" class="footer-popover ">
+                <div class="footer">
+                    <center>
+                        <h1>SARUAKI</h1>
+                        <hr class="line">
+                        <h4>Email : saruakifinance@gmail.com</h4>
+                        <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
+                    </center>
+                </div>
+            </footer>
             
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        </div>
+        </div>   
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+         
+
 </body>
 </html>

@@ -281,7 +281,7 @@ if (isset($_GET['get_transaction'])) {
                             </li>
                         </ul>
                     </nav>
-                    <div class="footer">
+                    <div class="footernya">
                         Showing
                         <?php echo $viewMode === 'all' ? "1 to $totalData" : ($startIndex + 1) . " to " . min($startIndex + $dataPerPage, $totalData); ?>
                         of <?php echo $totalData; ?>
@@ -323,6 +323,18 @@ if (isset($_GET['get_transaction'])) {
                     </div>
                 </div>
             </div>
+
+            <!-- Footer -->
+            <footer id="page-footer" class="footer-popover ">
+                <div class="footer">
+                    <center>
+                        <h1>SARUAKI</h1>
+                        <hr class="line">
+                        <h4>Email : saruakifinance@gmail.com</h4>
+                        <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
+                    </center>
+                </div>
+            </footer>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
             <script>
