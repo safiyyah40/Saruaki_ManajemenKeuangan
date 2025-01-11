@@ -22,6 +22,23 @@ if (!$user) {
 }
 
 $fullName = $user['fullName'];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $date = $_POST['date'];
+    $profession = $_POST['profession'];
+    $category = $_POST['category'];
+    $notes = $_POST['notes'];
+
+    $sql = "INSERT INTO opini (user_id, date, profesi, category, notes) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("issss", $userId, $date, $profession, $category, $notes);
+
+    if ($stmt->execute()) {
+        echo "<script>alert('Opinion submitted successfully!');</script>";
+    } else {
+        echo "<script>alert('Failed to submit opinion: " . $conn->error . "');</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
