@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['username'] = $pengguna['username'];
 
                 // Redirect ke halaman main menu
-                header("Location: pages/home.php");
+                header("Location: pages/dashboard.php");
                 
                 exit();
             } else {
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SARUAKI | Login</title>
+    <title>SARUAKI FINANCE| Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="loginstyle.css">
   </head>

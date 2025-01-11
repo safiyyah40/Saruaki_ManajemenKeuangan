@@ -3,7 +3,7 @@ session_start();
 include '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 

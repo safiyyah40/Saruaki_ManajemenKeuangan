@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
 include '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
@@ -25,6 +25,7 @@ $fullName = $user['fullName'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@ $fullName = $user['fullName'];
         <div class="sidebar py-4">
             <div class="text-center mb-4">
                 <img src="../images/logo_saruaki.svg" alt="Logo" class="logo">
-                <h5>SARUAKI</h5>
+                <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
             <nav class="nav flex-column px-3">
@@ -63,9 +64,9 @@ $fullName = $user['fullName'];
                 <a href="receivable.php" class="nav-link">
                     <img src="../images/icon_receivable.svg" alt="Receivable Icon" class="nav-icon"> Receivable
                 </a>
-                <p class="text-warning fw-bold mt-4">Report</p>
-                <a href="printreport.php" class="nav-link">
-                    <img src="../images/icon_print_report.svg" alt="Print Icon" class="nav-icon"> Print Report
+                <p class="text-warning fw-bold mt-4">History</p>
+                <a href="activities.php" class="nav-link">
+                    <img src="../images/icon_activities.png" alt="Activities Icon" class="nav-icon"> Activities
                 </a>
             </nav>
         </div>
@@ -87,7 +88,7 @@ $fullName = $user['fullName'];
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../Login.php">
+                            <a class="dropdown-item" href="../homeguest.php">
                                 <img src="../images/icon_logout.svg" alt="Logout Icon" class="dropdown-icon">
                                 Logout
                             </a>
@@ -99,7 +100,7 @@ $fullName = $user['fullName'];
             <!-- Content -->
             <div class="highlight">
                 <h1>Track Your Finances, Achieve Your Goals.</h1>
-                <p>Stay in control of your financial journey with SARUAKI. Easily record and monitor your daily and monthly income and expenses, keep track of debts and receivables, and gain a clear overview of your financial health. Our app empowers you to make informed decisions and stay on top of your finances, helping you achieve both short-term and long-term financial goals.</p>
+                <p>Stay in control of your financial journey with SARUAKI FINANCE. Easily record and monitor your daily and monthly income and expenses, keep track of debts and receivables, and gain a clear overview of your financial health. Our app empowers you to make informed decisions and stay on top of your finances, helping you achieve both short-term and long-term financial goals.</p>
             </div>
             <div class="highlight-1">
                 <p>See what people think of this app</p>
@@ -112,43 +113,86 @@ $fullName = $user['fullName'];
                         <h6 class="card-subtitle">–Ume, First-Time User</h6>
                     </div>
                 </div>
-            <div class="card">
-                 <div class="card-body">
-                    <h5 class="card-title">Access Anywhere, Anytime</h5>
-                    <p class="card-text">"I love the flexibility of being able to access my financial data no matter where I am. Whether I’m at home on my computer or on the go with my phone, I can always check my finances with ease."</p>
-                    <h6 class="card-subtitle">–Kazehaya, Professional</h6>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Access Anywhere, Anytime</h5>
+                        <p class="card-text">"I love the flexibility of being able to access my financial data no matter where I am. Whether I’m at home on my computer or on the go with my phone, I can always check my finances with ease."</p>
+                        <h6 class="card-subtitle">–Kazehaya, Professional</h6>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Saves Time and Energy</h5>
-                    <p class="card-text">"I used to spend hours manually calculating my spending, but this app’s automation has made my life so much easier. It saves me time and lets me focus on other important tasks."</p>
-                    <h6 class="card-subtitle">Sawako, Collage Student</h6>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Saves Time and Energy</h5>
+                        <p class="card-text">"I used to spend hours manually calculating my spending, but this app’s automation has made my life so much easier. It saves me time and lets me focus on other important tasks."</p>
+                        <h6 class="card-subtitle">Sawako, Collage Student</h6>
                     </div>
                 </div>
             </div>
 
             <div class="opinion">
-                <input type="text" placeholder="Tell us your opinion!">
+                <a onclick="togglePopup()" class="icon-button">
+                    <img src="../images/icon_opinion.svg" alt="icon opinion">Tell us your opinion!
+                </a>
             </div>
+
+
+            <div class="popup" id="popup-1">
+                <div class="overlay" onclick="togglePopup()"></div>
+                <div class="content">
+                    <div class="header">
+                        <h2 style="font-weight: bold;">Tell us your opinion</h2>
+                    </div>
+                    <div class="form">
+                        <form method="POST" action="">
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Date</label>
+                                <input type="date" class="form-control" name="date" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="profession" class="form-label">Profession</label>
+                                <input type="text" class="form-control" name="profession" placeholder="Your Profession" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="category" class="form-label">Category</label>
+                                <input type="text" class="form-control" name="category" placeholder="What is your first impression?" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="notes" class="form-label">Notes</label>
+                                <textarea class="form-control" name="notes" rows="3" placeholder="Can you share your experience while using this app?" required></textarea>
+                            </div>
+                            <div class="button-group">
+                                <button type="button" class="button-close" onclick="togglePopup()">Cancel</button>
+                                <button type="submit" class="button-save">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
 
             <!-- Footer -->
             <footer id="page-footer" class="footer-popover ">
                 <div class="footer">
                     <center>
-                        <h1>SARUAKI</h1>
+                        <h1>SARUAKI FINANCE</h1>
                         <hr class="line">
                         <h4>Email : saruakifinance@gmail.com</h4>
-                        <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
+                        <p>&copy; 2025 Saruaki Finance | All Right Reserved</p>
                     </center>
                 </div>
             </footer>
-            
-        </div>   
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-         
 
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePopup() {
+            const popup = document.getElementById("popup-1");
+            popup.classList.toggle("active");
+        }
+    </script>
 </body>
+
 </html>

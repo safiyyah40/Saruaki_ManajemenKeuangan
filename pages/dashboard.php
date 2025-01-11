@@ -3,7 +3,7 @@ session_start();
 include '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
@@ -182,7 +182,7 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
         <div class="sidebar py-4">
             <div class="text-center mb-4">
                 <img src="../images/logo_saruaki.svg" alt="Logo" class="logo">
-                <h5>SARUAKI</h5>
+                <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
             <nav class="nav flex-column px-3">
@@ -206,9 +206,9 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
                 <a href="receivable.php" class="nav-link">
                     <img src="../images/icon_receivable.svg" alt="Receivable Icon" class="nav-icon"> Receivable
                 </a>
-                <p class="text-warning fw-bold mt-4">Report</p>
-                <a href="printreport.php" class="nav-link">
-                    <img src="../images/icon_print_report.svg" alt="Print Icon" class="nav-icon"> Print Report
+                <p class="text-warning fw-bold mt-4">History</p>
+                <a href="activities.php" class="nav-link">
+                    <img src="../images/icon_activities.png" alt="Activities Icon" class="nav-icon"> Activities
                 </a>
             </nav>
         </div>
@@ -230,7 +230,7 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../Login.php">
+                            <a class="dropdown-item" href="../homeguest.php">
                                 <img src="../images/icon_logout.svg" alt="Logout Icon" class="dropdown-icon">
                                 Logout
                             </a>
@@ -344,7 +344,7 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
             <footer id="page-footer" class="footer-popover ">
                 <div class="footer">
                     <center>
-                        <h1>SARUAKI</h1>
+                        <h1>SARUAKI FINANCE</h1>
                         <hr class="line">
                         <h4>Email : saruakifinance@gmail.com</h4>
                         <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>

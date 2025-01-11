@@ -3,7 +3,7 @@ session_start();
 include '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
@@ -98,7 +98,7 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
        <footer id="page-footer" class="footer-popover ">
                 <div class="footer">
                     <center>
-                        <h1>SARUAKI</h1>
+                        <h1>SARUAKI FINANCE</h1>
                         <hr class="line">
                         <h4>Email : saruakifinance@gmail.com</h4>
                         <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
