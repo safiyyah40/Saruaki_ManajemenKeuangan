@@ -263,6 +263,14 @@ button h4{
     height: 20px;
 }
 
+.no-opinions {
+    color: #E59A17;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
 
 .popup .overlay {
     position: fixed;

@@ -29,20 +29,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category = $_POST['category'];
     $notes = $_POST['notes'];
 
-    $sql = "INSERT INTO opini (user_id, date, profesi, category, notes) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO opinion (user_id, date, profesi, category, notes) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("issss", $userId, $date, $profession, $category, $notes);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Opinion submitted successfully!');</script>";
+        header("Location: home.php");
+        exit();
     } else {
-        echo "<script>alert('Failed to submit opinion: " . $conn->error . "');</script>";
+        die("Error: " . mysqli_error($conn));
     }
 }
+$sql = "SELECT o.category, o.notes, o.profesi, o.date, u.fullName AS username
+        FROM opinion o
+        JOIN users u ON o.user_id = u.id
+        ORDER BY o.date DESC
+        LIMIT 3";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,36 +132,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>See what people think of this app</p>
             </div>
             <div class="card-group">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Simple and User-Friendly</h5>
-                        <p class="card-text">"This app is incredibly easy to use! As someone who’s just starting to manage my finances, I found the design very intuitive. Everything is clearly laid out, and I didn’t have to spend much time learning how to use it."</p>
-                        <h6 class="card-subtitle">–Ume, First-Time User</h6>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Access Anywhere, Anytime</h5>
-                        <p class="card-text">"I love the flexibility of being able to access my financial data no matter where I am. Whether I’m at home on my computer or on the go with my phone, I can always check my finances with ease."</p>
-                        <h6 class="card-subtitle">–Kazehaya, Professional</h6>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Saves Time and Energy</h5>
-                        <p class="card-text">"I used to spend hours manually calculating my spending, but this app’s automation has made my life so much easier. It saves me time and lets me focus on other important tasks."</p>
-                        <h6 class="card-subtitle">Sawako, Collage Student</h6>
-                    </div>
-                </div>
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo '
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">' . htmlspecialchars($row['category']) . '</h5>
+                                <p class="card-text">"' . htmlspecialchars($row['notes']) . '"</p>
+                                <h6 class="card-subtitle">– ' . htmlspecialchars($row['username']) . ', ' . htmlspecialchars($row['profesi']) . '</h6>
+                            </div>
+                        </div>';
+                    }
+                } else {
+                    echo '<div class="alert alert-warning no-opinions">
+                            <i class="fa fa-exclamation-circle"></i> No opinions found.
+                          </div>';
+                }
+                ?>
             </div>
-
             <div class="opinion">
                 <a onclick="togglePopup()" class="icon-button">
                     <img src="../images/icon_opinion.svg" alt="icon opinion">Tell us your opinion!
                 </a>
             </div>
-
-
             <div class="popup" id="popup-1">
                 <div class="overlay" onclick="togglePopup()"></div>
                 <div class="content">
@@ -186,8 +189,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             </div>
 
-
-
             <!-- Footer -->
             <footer id="page-footer" class="footer-popover ">
                 <div class="footer">
@@ -211,5 +212,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
 </body>
-
 </html>

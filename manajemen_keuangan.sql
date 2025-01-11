@@ -13,8 +13,8 @@ CREATE TABLE income (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     date DATE NOT NULL,
-    notes VARCHAR(500),
-    amount DECIMAL(10, 2),
+    notes VARCHAR(500) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -22,8 +22,8 @@ CREATE TABLE spending (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     date DATE NOT NULL,
-    notes VARCHAR(500),
-    amount DECIMAL(10, 2),
+    notes VARCHAR(500) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -31,9 +31,9 @@ CREATE TABLE debt (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     date DATE NOT NULL,
-    kreditur VARCHAR(500),
-    notes VARCHAR(500),
-    amount DECIMAL(10, 2),
+    kreditur VARCHAR(500) NOT NULL,
+    notes VARCHAR(500) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -41,18 +41,18 @@ CREATE TABLE receivable (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     date DATE NOT NULL,
-    debitur VARCHAR(500),
-    notes VARCHAR(500),
-    amount DECIMAL(10, 2),
+    debitur VARCHAR(500) NOT NULL,
+    notes VARCHAR(500) NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE opini (
+CREATE TABLE opinion (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     date DATE NOT NULL,
-    profesi VARCHAR(20),
-    category VARCHAR(30),
-    notes VARCHAR(70),
+    profesi VARCHAR(40) NOT NULL,
+    category VARCHAR(50) NOT NULL,
+    notes VARCHAR NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 )
