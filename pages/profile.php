@@ -71,7 +71,7 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
             <div class="left">
                 <div class="name">
                     <h5>Name</h5>
-                    <p><?php echo $username; ?></p>
+                    <p><?php echo $fullName; ?></p>
                 </div>
                 <div class="username">
                     <h5>Username</h5>

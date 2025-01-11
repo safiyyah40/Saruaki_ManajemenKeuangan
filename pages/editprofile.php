@@ -8,20 +8,41 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userId = $_SESSION['user_id'];
-$query = "SELECT fullName FROM users WHERE id = '$userId'";
-$result = mysqli_query($conn, $query);
+$query = "SELECT fullName, username, gender, email FROM users WHERE id = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if (!$result) {
-    die("Query error: " . mysqli_error($conn));
-}
-
-$user = mysqli_fetch_assoc($result);
-
-if (!$user) {
+if ($result->num_rows === 0) {
     die("User not found!");
 }
 
-$fullName = $user['fullName'];
+$user = $result->fetch_assoc();
+
+// Jika form disubmit, update data pengguna
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $fullName = $_POST['fullName'];
+    $username = $_POST['username'];
+    $gender = $_POST['gender'];
+    $email = $_POST['email'];
+
+    $updateQuery = "UPDATE users SET fullName = ?, username = ?, gender = ?, email = ? WHERE id = ?";
+    $updateStmt = $conn->prepare($updateQuery);
+    $updateStmt->bind_param("ssssi", $fullName, $username, $gender, $email, $userId);
+
+    if ($updateStmt->execute()) {
+        // Refresh data pengguna setelah update
+        $user['fullName'] = $fullName;
+        $user['username'] = $username;
+        $user['gender'] = $gender;
+        $user['email'] = $email;
+
+        $successMessage = "Profile updated successfully!";
+    } else {
+        $errorMessage = "Failed to update profile. Please try again.";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,20 +51,20 @@ $fullName = $user['fullName'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARUAKI FINANCE</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="profilestyle.css">
+    <link rel="stylesheet" href="editstyle.css">
 </head>
 
 <body>
     <div class="container">
         <div class="header">
             <h1>My Profile</h1>
-            <button><a href="home.php">Back</a></button>
+            <button><a href="profile.php">Back</a></button>
         </div>
         <div class="content">
             <img src="../images/icon_user.svg" alt="User Icon">
             <div class="text">
-                <h1>USERNAME</h1>
-                <p>Last Acces Sunday, 29 December 2024, 7:00 PM</p>
+                <h1><?php echo htmlspecialchars($user['username']); ?></h1>
+                <p>Last Access: <?php echo date('l, d F Y, h:i A'); ?></p>
             </div>
         </div>
     </div>
@@ -53,28 +74,29 @@ $fullName = $user['fullName'];
             <h1>About Me</h1>
         </div>
         <div class="content-1">
-            <div class="left">
-                <div class="name">
-                    <h5>Name</h5>
-                    <input type="text" placeholder="Fullname">
+            <form method="POST" action="">
+                <div class="left">
+                    <div class="name">
+                        <h5>Name</h5>
+                        <input type="text" name="fullName" value="<?php echo htmlspecialchars($user['fullName']); ?>" required>
+                    </div>
+                    <div class="username">
+                        <h5>Username</h5>
+                        <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
+                    </div>
                 </div>
-                <div class="username">
-                    <h5>Username</h5>
-                    <input type="text" placeholder="Username">
+                <div class="right">
+                    <div class="gender">
+                        <h5>Gender</h5>
+                        <input type="text" name="gender" value="<?php echo htmlspecialchars($user['gender']); ?>" readonly>
+                    </div>
+                    <div class="email">
+                        <h5>Email</h5>
+                        <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" readonly>
+                    </div>
+                    <button type="submit">Save</button>
                 </div>
-            </div>
-            <div class="right">
-                <div class="Gender">
-                    <h5>Gender</h5>
-                    <input type="text" placeholder="Male">
-                </div>
-                <div class="email">
-                    <h5>Email</h5>
-                    <input type="text" placeholder="dummy@gmail.com">
-                </div>
-                <button><a href="profile.php">Save</a></button>
-            </div>
-            
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
