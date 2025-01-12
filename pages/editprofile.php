@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
-include '../connection.php';
+require '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
@@ -50,12 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARUAKI FINANCE</title>
+    <title>SARUAKI FINANCE | Edit Profile</title>
     <link rel="icon" href="../images/logo_saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="editstyle.css">
 </head>
-
 <body>
     <div class="container">
         <div class="header">
@@ -103,17 +102,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
-     <!-- Footer -->
-     <div class="bottom" >
-       <footer id="page-footer" class="footer-popover ">
-                <div class="footer">
-                    <center>
-                        <h1>SARUAKI FINANCE</h1>
-                        <hr class="line">
-                        <h4>Email : saruakifinance@gmail.com</h4>
-                        <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
-                    </center>
-                </div>
+    <!-- Footer -->
+    <div class="bottom">
+        <footer id="page-footer" class="footer-popover ">
+            <div class="footer">
+                <center>
+                    <h1>SARUAKI FINANCE</h1>
+                    <hr class="line">
+                    <h4>Email : saruakifinance@gmail.com</h4>
+                    <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
+                </center>
+            </div>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

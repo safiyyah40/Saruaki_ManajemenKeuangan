@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../connection.php';
+require '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
@@ -52,22 +52,22 @@ $result = $stmt->get_result();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARUAKI FINANCE</title>
-    <link rel="icon" href="../images/logo_saruaki.png" type="image/png">
+    <title>SARUAKI FINANCE | Home</title>
+    <link rel="icon" href="../images/Saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="homestyle.css">
 </head>
-
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
         <div class="sidebar py-4">
             <div class="text-center mb-4">
-                <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
+                <a href="home.php">
+                    <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
+                </a>
                 <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
@@ -171,7 +171,7 @@ $result = $stmt->get_result();
                         <form method="POST" action="">
                             <div class="mb-3">
                                 <label for="date" class="form-label">Date</label>
-                                <input type="date"class="form-control" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" readonly required>
+                                <input type="date" class="form-control" name="date" id="date" value="<?php echo date('Y-m-d'); ?>" readonly required>
                             </div>
                             <div class="mb-3">
                                 <label for="profession" class="form-label">Profession</label>

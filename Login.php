@@ -25,10 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 session_start();
                 $_SESSION['user_id'] = $pengguna['id'];
                 $_SESSION['username'] = $pengguna['username'];
-
                 // Redirect ke halaman main menu
                 header("Location: pages/dashboard.php");
-                
                 exit();
             } else {
                 $message = "Username or Password Incorrect.";
@@ -42,29 +40,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SARUAKI FINANCE| Login</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARUAKI FINANCE | Login</title>
+    <link rel="icon" href="./images/Saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="loginstyle.css">
-  </head>
-  <body>
-  <div class="container">
+</head>
+<body>
+    <div class="container">
         <div class="card mx-auto">
-        <div class="monkey-container">
-        <img src="images/Saruaki_3.png" alt="Monkey Icon" class="monkey-icon">
-    </div>
+            <div class="monkey-container">
+                <img src="images/Saruaki_3.png" alt="Monkey Icon" class="monkey-icon">
+            </div>
             <h3 class="fw-bold mt-4 mb-3">Sign In to SARUAKI</h3>
             <div class="card-body">
                 <?php if ($message): ?>
                     <div class="alert alert-danger" role="alert" style="text-align: left;">
                         <?php echo htmlspecialchars($message); ?>
                     </div>
-                <?php endif; ?> 
-                
+                <?php endif; ?>
+
                 <!-- Formulir Login -->
                 <form action="" method="POST">
                     <div class="mb-3">
@@ -73,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="mb-3 password-container">
                         <input type="password" class="form-control" name="password_user" placeholder="Password" required>
                         <span class="show-hide">
-                            <img src="images/eye-off.svg" alt="Hide Icon" class="show-icon"> 
+                            <img src="images/eye-off.svg" alt="Hide Icon" class="show-icon">
                         </span>
                     </div>
                     <div class="d-grid">
@@ -91,19 +90,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         showHideIcons.forEach((icon) => {
             const input = icon.previousElementSibling;
             const img = icon.querySelector("img");
-            icon.addEventListener("click", function () {
+            icon.addEventListener("click", function() {
                 if (input.type === "password") {
-                    input.type = "text"; 
-                    img.src = "images/eye.svg"; 
+                    input.type = "text";
+                    img.src = "images/eye.svg";
                 } else {
-                    input.type = "password"; 
+                    input.type = "password";
                     img.src = "images/eye-off.svg";
                 }
             });
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

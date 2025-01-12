@@ -1,11 +1,6 @@
 <?php
 session_start();
-include 'connection.php';
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: Login.php");
-    exit();
-}
+require 'connection.php';
 
 $sql = "SELECT o.category, o.notes, o.profesi, o.date, u.fullName AS username
         FROM opinion o
@@ -22,18 +17,19 @@ $result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARUAKI FINANCE</title>
-    <link rel="icon" href="./images/logo_saruaki.png" type="image/png">
+    <title>SARUAKI FINANCE | Home</title>
+    <link rel="icon" href="./images/Saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./pages/homestyle.css">
 </head>
-
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
         <div class="sidebar py-4">
             <div class="text-center mb-4">
-                <img src="images/Saruaki_2.png" alt="Logo" class="logo">
+                <a href="homeguest.php">
+                    <img src="./images/Saruaki_2.png" alt="Logo" class="logo">
+                </a>
                 <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>

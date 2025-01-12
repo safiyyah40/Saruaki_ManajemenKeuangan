@@ -1,14 +1,13 @@
-<?php 
+<?php
 session_start();
-include '../connection.php';
+require '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
 $userId = $_SESSION['user_id'];
-
 $updateQuery = "UPDATE users SET last_access = NOW() WHERE id = '$userId'";
 if (!mysqli_query($conn, $updateQuery)) {
     die("Update failed: " . mysqli_error($conn));
@@ -38,17 +37,17 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
     $lastAccess = date('l, d F Y, h:i A', strtotime($user['last_access']));
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARUAKI FINANCE</title>
-    <link rel="icon" href="../images/logo_saruaki.png" type="image/png">
+    <title>SARUAKI FINANCE | Profile</title>
+    <link rel="icon" href="../images/Saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="profilestyle.css">
 </head>
-
 <body>
     <div class="container">
         <div class="header">
@@ -92,21 +91,20 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
                 </div>
                 <a href="editprofile.php"><button>Edit</button></a>
             </div>
-            
         </div>
     </div>
 
     <!-- Footer -->
-     <div class="bottom" >
-       <footer id="page-footer" class="footer-popover ">
-                <div class="footer">
-                    <center>
-                        <h1>SARUAKI FINANCE</h1>
-                        <hr class="line">
-                        <h4>Email : saruakifinance@gmail.com</h4>
-                        <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
-                    </center>
-                </div>
+    <div class="bottom">
+        <footer id="page-footer" class="footer-popover ">
+            <div class="footer">
+                <center>
+                    <h1>SARUAKI FINANCE</h1>
+                    <hr class="line">
+                    <h4>Email : saruakifinance@gmail.com</h4>
+                    <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
+                </center>
+            </div>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

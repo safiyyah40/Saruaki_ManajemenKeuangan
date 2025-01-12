@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../connection.php';
+require '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
@@ -120,18 +120,19 @@ if (isset($_GET['get_transaction'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARUAKI FINANCE</title>
-    <link rel="icon" href="../images/logo_saruaki.png" type="image/png">
+    <title>SARUAKI FINANCE | Income</title>
+    <link rel="icon" href="../images/Saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="contentstyle.css">
 </head>
-
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
         <div class="sidebar py-4">
             <div class="text-center mb-4">
-                <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
+                <a href="home.php">
+                    <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
+                </a>
                 <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
@@ -190,6 +191,7 @@ if (isset($_GET['get_transaction'])) {
                     </ul>
                 </div>
             </div>
+
             <!-- Income Table -->
             <div class="container-table">
                 <div class="header">
@@ -334,7 +336,6 @@ if (isset($_GET['get_transaction'])) {
                     </center>
                 </div>
             </footer>
-
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
             <script>

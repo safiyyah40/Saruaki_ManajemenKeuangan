@@ -1,13 +1,12 @@
 <?php
 session_start();
-include '../connection.php';
+require '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../Login.php");
+    header("Location: ../homeguest.php");
     exit();
 }
 
-// Ambil data pengguna
 $userId = $_SESSION['user_id'];
 $query = "SELECT fullName FROM users WHERE id = '$userId'";
 $result = mysqli_query($conn, $query);
@@ -18,7 +17,6 @@ if (!$result) {
 }
 
 $user = mysqli_fetch_assoc($result);
-
 if (!$user) {
     echo "User not found!";
     exit();
@@ -171,8 +169,8 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SARUAKI FINANCE</title>
-    <link rel="icon" href="../images/logo_saruaki.png" type="image/png">
+    <title>SARUAKI FINANCE | Dashboard</title>
+    <link rel="icon" href="../images/Saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="dashboardstylee.css">
 </head>
@@ -181,7 +179,9 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
         <!-- Sidebar -->
         <div class="sidebar py-4">
             <div class="text-center mb-4">
-                <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
+                <a href="home.php">
+                    <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
+                </a>
                 <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
@@ -323,7 +323,7 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
                     </div>
                 </div>
 
-                <!-- Total Income and Spending -->
+                <!-- Card 9 -->
                 <div class="col-md-6">
                     <div class="card custom-card shadow-sm">
                         <div class="card-body">
@@ -332,6 +332,8 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 10 -->
                 <div class="col-md-6">
                     <div class="card custom-card shadow-sm">
                         <div class="card-body">

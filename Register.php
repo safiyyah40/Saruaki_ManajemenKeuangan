@@ -41,18 +41,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SARUAKI | Register</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SARUAKI FINANCE | Register</title>
+    <link rel="icon" href="./images/Saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="registerstyle.css">    
-  </head>
-  <body>
-  <div class="container">
+    <link rel="stylesheet" href="registerstyle.css">
+</head>
+<body>
+    <div class="container">
         <div class="left-section">
             <h2 class="fw-bold">Create an Account</h2>
             <p>Already Have an Account? <a href="Login.php">Sign In</a></p>
@@ -86,32 +86,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="mb-3 password-container">
                         <input type="password" class="form-control" name="password_user" placeholder="Password" required>
                         <span class="show-hide">
-                            <img src="images/eye-off.svg" alt="Show Icon" class="show-icon"> 
+                            <img src="images/eye-off.svg" alt="Show Icon" class="show-icon">
                         </span>
                     </div>
 
                     <div class="mb-3 password-container">
                         <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required>
                         <span class="show-hide">
-                            <img src="images/eye-off.svg" alt="Show Icon" class="show-icon"> 
+                            <img src="images/eye-off.svg" alt="Show Icon" class="show-icon">
                         </span>
                     </div>
 
                     <div class="d-grid">
-
                         <button type="submit" class="btn btn-custom">SIGN UP</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    
+
     <script>
         const showHideIcons = document.querySelectorAll(".show-hide");
         showHideIcons.forEach((icon) => {
             const input = icon.previousElementSibling;
             const img = icon.querySelector("img");
-            icon.addEventListener("click", function () {
+            icon.addEventListener("click", function() {
                 if (input.type === "password") {
                     input.type = "text";
                     img.src = "images/eye.svg";
@@ -121,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             });
         });
-    </script>    
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
