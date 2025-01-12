@@ -44,6 +44,10 @@ h6{
     margin-left: 5px;
 }
 
+.navbar {
+    margin-left: 2rem;
+}
+
 .dropdown-item {
     display: flex;
     align-items: center;
@@ -97,8 +101,7 @@ h6{
 }
 
 .sidebar img.logo {
-    width: 80px;
-    margin-bottom: 10px;
+    width: 150px;
 }
 
 .sidebar h5 {
@@ -158,11 +161,11 @@ h6{
 }
 
 .content {
-    margin-left: 15rem;
+    margin-left: 14rem;
 }
 
 .highlight {
-    padding: 15rem;
+    padding: 1rem;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -238,11 +241,13 @@ button h4{
     align-items: center;
     border: 2px solid #485847;
     border-radius: 25px;
+    margin-bottom: 8rem;
     padding: 5px 10px;
     background-color: #FFFFFF;
     width: 100%;
     max-width: 1550px;
 }
+
 .opinion .icon-button {
     display: inline-flex;
     align-items: center;
@@ -286,7 +291,7 @@ button h4{
 .popup .content {
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 37%;
     transform: translate(-50%, -50%) scale(0);
     background-color: #FFF4F3;
     width: 450px;
@@ -333,8 +338,9 @@ button h4{
     color: #F0C476;
 }
 
-.popup .content h6 {
+.popup .content label {
     text-align: left;
+    font-weight: bold;
 }
 
 .popup .content button {
@@ -397,7 +403,9 @@ header h2 {
     color: #FFFFFF;
     background-color: #F0C476;
     padding-bottom: 10px; 
-    margin: 0;
+    margin-top: 80px;
+    margin-right: -24px;
+    margin-bottom: -24px;    
     box-sizing: border-box;
 }
 

@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="container">
         <div class="card mx-auto">
         <div class="monkey-container">
-        <img src="images/logo_saruaki.png" alt="Monkey Icon" class="monkey-icon">
+        <img src="images/Saruaki_3.png" alt="Monkey Icon" class="monkey-icon">
     </div>
             <h3 class="fw-bold mt-4 mb-3">Sign In to SARUAKI</h3>
             <div class="card-body">

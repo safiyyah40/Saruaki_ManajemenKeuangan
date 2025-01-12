@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="left-section">
             <h2 class="fw-bold">Create an Account</h2>
             <p>Already Have an Account? <a href="Login.php">Sign In</a></p>
-            <img src="" alt="">
+            <img src="images/Saruaki.png" alt="">
         </div>
         <div class="form-container">
             <div class="card-body">

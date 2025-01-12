@@ -131,7 +131,7 @@ if (isset($_GET['get_transaction'])) {
         <!-- Sidebar -->
         <div class="sidebar py-4">
             <div class="text-center mb-4">
-                <img src="../images/logo_saruaki.svg" alt="Logo" class="logo">
+                <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
                 <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
@@ -166,7 +166,9 @@ if (isset($_GET['get_transaction'])) {
         <!-- Main Content -->
         <div class="content p-4 flex-grow-1">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6>Pages / <span class="text-warning">Income</span></h6>
+                <div class="navbar">
+                    <h6>Pages / <span class="text-warning">Income</span></h6>
+                </div>
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle custom-btn" type="button" data-bs-toggle="dropdown">
                         <img src="../images/icon_user.svg" alt="User Icon">

@@ -181,7 +181,7 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
         <!-- Sidebar -->
         <div class="sidebar py-4">
             <div class="text-center mb-4">
-                <img src="../images/logo_saruaki.svg" alt="Logo" class="logo">
+                <img src="../images/Saruaki_2.png" alt="Logo" class="logo">
                 <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
@@ -216,7 +216,9 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
         <!-- Main Content -->
         <div class="content p-4 flex-grow-1">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6>Pages / <span class="text-warning">Dashboard</span></h6>
+                <div class="navbar">
+                    <h6>Pages / <span class="text-warning">Dashboard</span></h6>
+                </div>
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle custom-btn" type="button" data-bs-toggle="dropdown">
                         <img src="../images/icon_user.svg" alt="User Icon">
@@ -240,7 +242,7 @@ if ($row = mysqli_fetch_assoc($resultThisMonthTransaction)) {
             </div>
 
             <!-- Cards Section -->
-            <div class="row g-5">
+            <div class="row g-4">
                 <!-- Card 1 -->
                 <div class="col-md-4">
                     <div class="card custom-card shadow-sm">

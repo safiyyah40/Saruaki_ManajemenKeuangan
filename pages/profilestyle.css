@@ -53,9 +53,9 @@ a {
     font-weight: 500;
 }
 
-.container button {
+.container .button-back button {
     position: absolute;
-    margin-left: 60rem;
+    margin-left: 20rem;
     margin-top: -60px;
     padding: 8px 20px;
     border-radius: 50px;
@@ -107,21 +107,22 @@ a {
 }
 
 .content-1 p {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .content-1 .left {
-    margin-left: 2rem;
+    margin-left: 3rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .content-1 .right {
-    margin-left: 30rem;
+    margin-left: 23rem;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    max-width: 50%;
 }
 
 .content-1 .right button {
@@ -132,7 +133,7 @@ a {
     border: none;
     font-weight: 500;
     margin-top: -15px;
-    margin-left: 23rem;
+    margin-left: 25rem;
     min-width: 100px;
 }
 

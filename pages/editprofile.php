@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user['email'] = $email;
 
         $successMessage = "Profile updated successfully!";
+        header("Location: profile.php");
     } else {
         $errorMessage = "Failed to update profile. Please try again.";
     }
@@ -59,7 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container">
         <div class="header">
             <h1>My Profile</h1>
-            <button><a href="profile.php">Back</a></button>
+            <div class="button-back">
+                <a href="profile.php"><button>Back</button></a>
+            </div>
         </div>
         <div class="content">
             <img src="../images/icon_user.svg" alt="User Icon">
@@ -95,10 +98,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <h5>Email</h5>
                         <input type="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" readonly>
                     </div>
-                    <button type="submit">Save</button>
+                    <a href="profile.php"><button type="submit">Save</button></a>
                 </div>
             </form>
         </div>
+    </div>
+     <!-- Footer -->
+     <div class="bottom" >
+       <footer id="page-footer" class="footer-popover ">
+                <div class="footer">
+                    <center>
+                        <h1>SARUAKI FINANCE</h1>
+                        <hr class="line">
+                        <h4>Email : saruakifinance@gmail.com</h4>
+                        <p>&copy; 2025 Saruaki Finance | All Rights Reserved</p>
+                    </center>
+                </div>
+        </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

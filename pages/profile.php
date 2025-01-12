@@ -53,13 +53,15 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
     <div class="container">
         <div class="header">
             <h1>My Profile</h1>
-            <button><a href="dashboard.php">Back</a></button>
+            <div class="button-back">
+                <a href="dashboard.php"><button>Back</button></a>
+            </div>
         </div>
         <div class="content">
             <img src="../images/icon_user.svg" alt="User Icon">
             <div class="text">
                 <h1><?php echo $username; ?></h1>
-                <p><?php echo $lastAccess; ?></p>
+                <p>Last Access: <?php echo $lastAccess; ?></p>
             </div>
         </div>
     </div>
@@ -88,7 +90,7 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
                     <h5>Email</h5>
                     <p><?php echo $email; ?></p>
                 </div>
-                <button><a href="editprofile.php">Edit</a></button>
+                <a href="editprofile.php"><button>Edit</button></a>
             </div>
             
         </div>

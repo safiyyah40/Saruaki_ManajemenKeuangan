@@ -33,7 +33,7 @@ $result = $stmt->get_result();
         <!-- Sidebar -->
         <div class="sidebar py-4">
             <div class="text-center mb-4">
-                <img src="./images/logo_saruaki.svg" alt="Logo" class="logo">
+                <img src="images/Saruaki_2.png" alt="Logo" class="logo">
                 <h5>SARUAKI FINANCE</h5>
                 <hr>
             </div>
@@ -46,14 +46,11 @@ $result = $stmt->get_result();
 
         <!-- Main Content -->
         <div class="content p-4 flex-grow-1">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h6>Pages / <span class="text-warning">Home</span></h6>
-            </div>
-
             <!-- Content -->
             <div class="highlight">
+                <img src="images/homepage.jpg" alt="">
                 <h1>Track Your Finances, Achieve Your Goals.</h1>
-                <p>Stay in control of your financial journey with SARUAKI FINANCE. Easily record and monitor your daily and monthly income and expenses, keep track of debts and receivables, and gain a clear overview of your financial health. Our app empowers you to make informed decisions and stay on top of your finances, helping you achieve both short-term and long-term financial goals.</p>
+                <p>Stay in control of your financial journey with SARUAKI FINANCE. Easily record and monitor your daily and<br>monthly income and expenses, keep track of debts and receivables, and gain a clear overview of your<br>financial health. Our app empowers you to make informed decisions and stay on top of your finances,<br>helping you achieve both short-term and long-term financial goals.</p>
                 <a href="Login.php">
                     <button class="start-now">
                         <h4>
