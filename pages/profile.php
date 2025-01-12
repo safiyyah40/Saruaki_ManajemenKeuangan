@@ -3,7 +3,7 @@ session_start();
 include '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../homeguest.php");
+    header("Location: ../Login.php");
     exit();
 }
 
@@ -44,6 +44,7 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARUAKI FINANCE</title>
+    <link rel="icon" href="../images/logo_saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="profilestyle.css">
 </head>

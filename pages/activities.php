@@ -3,7 +3,7 @@ session_start();
 include '../connection.php';
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../homeguest.php");
+    header("Location: ../Login.php");
     exit();
 }
 
@@ -31,8 +31,6 @@ $nomor = $startIndex + 1;
 
 $search = isset($_GET['search']) ? mysqli_real_escape_string($conn, $_GET['search']) : '';
 
-// Kondisi pencarian
-// Kondisi pencarian
 $searchCondition = '';
 if (!empty($search)) {
     $searchEscaped = mysqli_real_escape_string($conn, $search);
@@ -41,22 +39,21 @@ if (!empty($search)) {
             notes LIKE '%$searchEscaped%' 
             OR amount LIKE '%$searchEscaped%' 
             OR date LIKE '%$searchEscaped%' 
-            OR type LIKE '%$searchEscaped%'
+            OR activity_transaction LIKE '%$searchEscaped%'
         )
     ";
 }
 
-// Hitung total data
 $totalQuery = "
     SELECT COUNT(*) AS total 
     FROM (
-        SELECT id, date, notes, amount, 'Income' AS type FROM income WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Income' AS activity_transaction FROM income WHERE user_id = '$userId'
         UNION ALL
-        SELECT id, date, notes, amount, 'Spending' AS type FROM spending WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Spending' AS activity_transaction FROM spending WHERE user_id = '$userId'
         UNION ALL
-        SELECT id, date, kreditur AS notes, amount, 'Debt' AS type FROM debt WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Debt' AS activity_transaction FROM debt WHERE user_id = '$userId'
         UNION ALL
-        SELECT id, date, debitur AS notes, amount, 'Receivable' AS type FROM receivable WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Receivable' AS activity_transaction FROM receivable WHERE user_id = '$userId'
     ) AS all_transactions
     $searchCondition
 ";
@@ -70,13 +67,13 @@ $queryLimit = $dataPerPage > 0 ? "LIMIT $startIndex, $dataPerPage" : '';
 $query = "
     SELECT * 
     FROM (
-        SELECT id, date, notes, amount, 'Income' AS type FROM income WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Income' AS activity_transaction FROM income WHERE user_id = '$userId'
         UNION ALL
-        SELECT id, date, notes, amount, 'Spending' AS type FROM spending WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Spending' AS activity_transaction FROM spending WHERE user_id = '$userId'
         UNION ALL
-        SELECT id, date, kreditur AS notes, amount, 'Debt' AS type FROM debt WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Debt' AS activity_transaction FROM debt WHERE user_id = '$userId'
         UNION ALL
-        SELECT id, date, debitur AS notes, amount, 'Receivable' AS type FROM receivable WHERE user_id = '$userId'
+        SELECT id, date, notes, amount, 'Receivable' AS activity_transaction FROM receivable WHERE user_id = '$userId'
     ) AS all_transactions
     $searchCondition
     ORDER BY date DESC
@@ -97,6 +94,7 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SARUAKI FINANCE</title>
+    <link rel="icon" href="../images/logo_saruaki.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="contentstyle.css">
 </head>
@@ -155,7 +153,7 @@ if (!$result) {
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="../Login.php">
+                            <a class="dropdown-item" href="../homeguest.php">
                                 <img src="../images/icon_logout.svg" alt="Logout Icon" class="dropdown-icon">
                                 Logout
                             </a>
@@ -196,7 +194,7 @@ if (!$result) {
                                 <td><?php echo htmlspecialchars($row['date']); ?></td>
                                 <td><?php echo htmlspecialchars($row['notes']); ?></td>
                                 <td><?php echo 'Rp ' . number_format(floatval($row['amount']), 0, ',', '.'); ?></td>
-                                <td><?php echo htmlspecialchars($row['type']); ?></td>
+                                <td><?php echo htmlspecialchars($row['activity_transaction']); ?></td>
                             </tr>
                         <?php endwhile; ?>
                     </tbody>
