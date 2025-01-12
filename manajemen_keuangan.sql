@@ -53,6 +53,6 @@ CREATE TABLE opinion (
     date DATE NOT NULL,
     profesi VARCHAR(40) NOT NULL,
     category VARCHAR(50) NOT NULL,
-    notes VARCHAR NOT NULL,
+    notes VARCHAR(1000) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 )
