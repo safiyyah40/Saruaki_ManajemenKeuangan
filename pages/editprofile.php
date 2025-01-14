@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userId = $_SESSION['user_id'];
-$query = "SELECT fullName, username, gender, email FROM users WHERE id = ?";
+$query = "SELECT fullName, username, gender, email, last_update FROM users WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $userId);
 $stmt->execute();
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gender = $_POST['gender'];
     $email = $_POST['email'];
 
-    $updateQuery = "UPDATE users SET fullName = ?, username = ?, gender = ?, email = ? WHERE id = ?";
+    $updateQuery = "UPDATE users SET fullName = ?, username = ?, gender = ?, email = ?, last_update = NOW() WHERE id = ?";
     $updateStmt = $conn->prepare($updateQuery);
     $updateStmt->bind_param("ssssi", $fullName, $username, $gender, $email, $userId);
 
@@ -44,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errorMessage = "Failed to update profile. Please try again.";
     }
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +69,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <img src="../images/icon_user.svg" alt="User Icon">
             <div class="text">
                 <h1><?php echo htmlspecialchars($user['username']); ?></h1>
-                <p>Last Access: <?php echo date('l, d F Y, h:i A'); ?></p>
+                <p><?php 
+                if (!empty($user['last_update'])) {
+    echo htmlspecialchars(date('l, d F Y, h:i A', strtotime($user['last_update'])));
+} else {
+    echo "Never Updated";
+} ?></p>
             </div>
         </div>
     </div>

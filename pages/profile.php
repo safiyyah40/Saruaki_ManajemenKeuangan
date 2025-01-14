@@ -8,11 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $userId = $_SESSION['user_id'];
-$updateQuery = "UPDATE users SET last_access = NOW() WHERE id = '$userId'";
-if (!mysqli_query($conn, $updateQuery)) {
-    die("Update failed: " . mysqli_error($conn));
-}
-
 $query = "SELECT * FROM users WHERE id = '$userId'";
 $result = mysqli_query($conn, $query);
 
@@ -31,10 +26,10 @@ $username = $user['username'];
 $gender = $user['gender'];
 $email = $user['email'];
 
-if (!isset($user['last_access']) || empty($user['last_access'])) {
-    $lastAccess = "Never Accessed";
+if (empty($user['last_update']) || is_null($user['last_update'])) {
+    $lastUpdate = "Never Updated";
 } else {
-    $lastAccess = date('l, d F Y, h:i A', strtotime($user['last_access']));
+    $lastUpdate = date('l, d F Y, h:i A', strtotime($user['last_update']));
 }
 ?>
 
@@ -60,7 +55,7 @@ if (!isset($user['last_access']) || empty($user['last_access'])) {
             <img src="../images/icon_user.svg" alt="User Icon">
             <div class="text">
                 <h1><?php echo $username; ?></h1>
-                <p>Last Access: <?php echo $lastAccess; ?></p>
+                <p><?php echo $lastUpdate; ?></p>
             </div>
         </div>
     </div>

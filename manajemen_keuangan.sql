@@ -6,7 +6,7 @@ CREATE TABLE users (
     username VARCHAR(50) NOT NULL UNIQUE,
     password_user VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    last_access DATETIME DEFAULT NULL
+    last_update DATETIME DEFAULT NULL
 );
 
 CREATE TABLE income (
